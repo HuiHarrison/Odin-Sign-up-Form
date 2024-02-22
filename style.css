@@ -5,11 +5,13 @@
 
 body {
     --border-radius-value: 16px;
+    --dark-green: #1D976C;
+    --light-green: #93F9B9;
 
     font-family: Arial, Helvetica, sans-serif;
-    background: #1D976C;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: var(--dark-green);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, var(--light-green), var(--dark-green));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, var(--light-green), var(--dark-green)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
     height: 100vh;
@@ -34,7 +36,7 @@ main {
 }
 
 .left-background {
-    background: rgb(98, 109, 72) url("contents/img/Green\ leaf\ plant.jpg") no-repeat fixed;
+    background: var(--light-green) url("contents/img/Green\ leaf\ plant.jpg") no-repeat fixed;
     background-size: cover;
     filter: blur(5px);
     position: absolute; 
@@ -122,15 +124,12 @@ label {
 input {
     border: 1px solid #E5E7EB;
     border: var(--border-radius-value);
+    width: 100%;
 }
 
 input:focus {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border: 1px solid blue;
-}
-
-input:invalid {
-    border: 1px solid red;
 }
 
 button[type="submit"] {
@@ -140,12 +139,18 @@ button[type="submit"] {
     padding: 5px 20px; 
     border-radius: 4px;
     border: none;
-    background-color: #1D976C;
+    background-color: var(--dark-green);
     margin: 2vh 0;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .login a {
-    color: #1D976C;
+    color: var(--dark-green);
     text-decoration: none;
+}
+
+.password-error::after {
+    content: "* Passwords do not match";
+    color: red;
+    font-size: 0.6rem;
 }
